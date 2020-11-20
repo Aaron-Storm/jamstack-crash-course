@@ -5,7 +5,7 @@ function LinkCard({ link, refreshLinks }) {
   const archiveLink = async () => {
     link.archived = true;
     try {
-      await fetch("/api/updateLink", {
+      await fetch("/.netlify/functions/updateLink", {
         method: "PUT",
         body: JSON.stringify( link ),
       });
@@ -19,7 +19,7 @@ function LinkCard({ link, refreshLinks }) {
   const deleteLink = async () => {
     const id = link._id;
     try {
-      await fetch("/api/deleteLink", {
+      await fetch("/.netlify/functions/deleteLink", {
         method: "DELETE",
         body: JSON.stringify({ id }),
       });
